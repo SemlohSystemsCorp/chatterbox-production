@@ -28,7 +28,7 @@ export default async function NotificationsPage() {
     .eq("is_read", false);
 
   // Fetch actor profiles
-  const actorIds = [...new Set((notifs || []).map((n) => n.actor_id).filter(Boolean))];
+  const actorIds = [...new Set((notifs || []).map((n) => n.actor_id).filter((id): id is string => id != null))];
   const actorMap: Record<string, { display_name: string | null; username: string | null; avatar_url: string | null }> = {};
   if (actorIds.length > 0) {
     const { data: actors } = await supabase
