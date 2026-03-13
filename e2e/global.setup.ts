@@ -45,8 +45,8 @@ setup("seed database", async () => {
     await admin.auth.admin.deleteUser(u.id);
   }
 
-  // Also wipe test orgs by slug
-  await admin.from("orgs").delete().in("slug", ["acme-inc", "beta-org"]);
+  // Also wipe test boxes by slug
+  await admin.from("boxes").delete().in("slug", ["12345678", "87654321"]);
 
   // Read and run seed SQL via the Supabase REST API isn't possible directly —
   // so we recreate the seed data programmatically here instead.
@@ -63,11 +63,10 @@ setup("seed database", async () => {
     [NEWUSER_ID, "newuser@test.com", "New User"],
   ] as [string, string, string][]) {
     await admin.auth.admin.createUser({
-      user_metadata: { id },
       email,
       password: "Test1234!",
       email_confirm: true,
-      user_metadata: { display_name: name },
+      user_metadata: { id, display_name: name },
     });
   }
 
@@ -89,29 +88,13 @@ setup("seed database", async () => {
     await admin.from("profiles").update({ username: "charlie" }).eq("id", userMap["charlie@test.com"]);
   }
 
-  // Orgs
+  // Box (top-level entity, no orgs)
   const aliceId = userMap["alice@test.com"];
   if (!aliceId) return;
 
-  const { data: acme } = await admin
-    .from("orgs")
-    .insert({ name: "Acme Inc", slug: "acme-inc", owner_id: aliceId, plan: "free", entity_type: "Company" })
-    .select("id")
-    .single();
-
-  if (!acme) return;
-
-  // Org members
-  await admin.from("org_members").insert([
-    { org_id: acme.id, user_id: aliceId,                   role: "owner" },
-    { org_id: acme.id, user_id: userMap["bob@test.com"],     role: "admin" },
-    { org_id: acme.id, user_id: userMap["charlie@test.com"], role: "member" },
-  ]);
-
-  // Box
   const { data: box } = await admin
     .from("boxes")
-    .insert({ org_id: acme.id, name: "Main", slug: "main", created_by: aliceId })
+    .insert({ name: "Acme Workspace", slug: "12345678", created_by: aliceId })
     .select("id")
     .single();
 
