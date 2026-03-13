@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#635bff"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <!-- Chat bubble -->
+  <rect x="6" y="7" width="20" height="13" rx="3" fill="white"/>
+  <!-- Tail -->
+  <path d="M10 20L10 25L15 20Z" fill="white"/>
+  <!-- Three dots -->
+  <circle cx="11.5" cy="13.5" r="1.5" fill="#635bff"/>
+  <circle cx="16" cy="13.5" r="1.5" fill="#635bff"/>
+  <circle cx="20.5" cy="13.5" r="1.5" fill="#635bff"/>
+</svg>

@@ -1,0 +1,64 @@
+{
+  "event_message": "Tenant uhvnzdqkqqbcplvuczcg has been terminated: :shutdown",
+  "id": "8ef19021-94b9-437a-acc4-9d7c4570be2d",
+  "metadata": [
+    {
+      "application_name": null,
+      "callers": [],
+      "cluster": "main",
+      "context": [
+        {
+          "application": "realtime",
+          "domain": [
+            "elixir"
+          ],
+          "file": "lib/realtime/tenants/connect.ex",
+          "function": "terminate/2",
+          "gl": "<0.3349.0>",
+          "line": 460,
+          "mfa": [
+            "Elixir.Realtime.Tenants.Connect",
+            "terminate",
+            "2"
+          ],
+          "module": "Elixir.Realtime.Tenants.Connect",
+          "pid": "<0.205864331.1>",
+          "registered_name": null,
+          "time": 1773419115439340,
+          "vm": [
+            {
+              "node": "realtime@2600:1f10:4c1b:cc00:f12b:43a0:c137:64cb"
+            }
+          ]
+        }
+      ],
+      "depth": null,
+      "error_code": null,
+      "error_logger": [],
+      "error_string": null,
+      "exp": null,
+      "external_id": "uhvnzdqkqqbcplvuczcg",
+      "formatter_error_params": [],
+      "func": null,
+      "internal_log_event": null,
+      "iss": null,
+      "level": "info",
+      "logger_pubsub_backend": [],
+      "measurements": [],
+      "mod": null,
+      "otel_span_id": null,
+      "otel_trace_flags": null,
+      "otel_trace_id": null,
+      "project": "uhvnzdqkqqbcplvuczcg",
+      "region": "us-east-1",
+      "request_id": null,
+      "stacktrace": [],
+      "sub": null,
+      "target": null,
+      "tenant": null,
+      "tenant_id": null,
+      "tenant_params": []
+    }
+  ],
+  "timestamp": 1773419115439000
+}

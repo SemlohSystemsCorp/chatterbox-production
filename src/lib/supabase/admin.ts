@@ -1,0 +1,10 @@
+import { createClient } from "@supabase/supabase-js";
+
+// Server-only admin client with service role key — bypasses RLS.
+// Intentionally untyped to avoid PostgREST generic conflicts on insert/update.
+export function createAdminClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
