@@ -42,6 +42,16 @@
     "uuid": "^13.0.0",
     "zustand": "^5.0.11"
   },
+  "overrides": {
+    "@emoji-mart/react": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-hot-toast": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
